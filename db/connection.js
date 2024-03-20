@@ -1,14 +1,13 @@
-const mysql = require('mysq12')
+const mysql = require('mysql2/promise'); 
 
-const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'your_username',
-    password: 'your_password',
-    database: 'your_database_name'
-});
+async function connectToDatabase() {
+    const connection = await mysql.createConnection({ 
+        host: 'localhost',
+        user: 'bradleytroll', // Replace with your actual username
+        password: 'passwordnode ', // Replace with your actual password
+        database: 'your_database_name' // Complete your database name
+    });
+    return connection;
+}
 
-connection.connect(function(err) {
-    if (err) throw err;
-});
-
-module.exports = connection;
+module.exports = connectToDatabase;
