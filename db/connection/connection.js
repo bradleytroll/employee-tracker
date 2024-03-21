@@ -4,8 +4,8 @@ const mysql = require('mysql2/promise');
 const config = {
   host: 'localhost',   
   user: 'root', // Your database username
-  password: 'password', // Your database password
-  database: 'employee_tracker' // Your database name
+  password: '', // Your database password
+  database: 'employeetracker_db' // Your database name
 };
 
 async function connectToDatabase() {
