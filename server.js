@@ -1,5 +1,13 @@
 const inquirer = require('inquirer');
-const connection = require('./db/connection');
+const connectToDatabase = require('./db/connection/connection');
+
+async function someDatabaseOperation() {
+  const connection = await connectToDatabase();
+  // Use the connection for queries, then close it
+  const [rows] = await connection.query('SELECT * FROM some_table');
+  console.log(rows);
+  await connection.end();
+}
 
 function start() {
     inquirer.prompt([
@@ -23,7 +31,7 @@ function start() {
             case 'View all departments':
                 viewDepartments();
                 break;
-            case 'Veiw all roles':
+            case 'View all roles':
                 viewRoles();
                 break;
             case 'View all employees':
@@ -42,7 +50,7 @@ function start() {
                 updateEmployeeRole();
                 break;
             case 'Exit':
-                connection.end();
+                console.log('Exiting application. Goodbye!');
                 break;
         }
     })
@@ -192,11 +200,18 @@ async function addEmployee() {
           choices: managerChoices
         }
       ]);
-  
-      await connection.query('INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)', [answers.firstName, answers.lastName, answers.roleId, answers.managerId]);
-      console.log(`Added ${answers.firstName} ${answers.lastName} to employees`);
-    } catch (error) {
-  
+   const managerId = answers.managerId === null ? null : answers.managerId;
+
+   await connection.query('INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)', 
+   [answers.firstName, answers.lastName, answers.roleId, managerId]);
+
+   console.log(`Added ${answers.firstName} ${answers.lastName} to employees.`);
+} catch (error) {
+   console.error('Error adding employee:', error.message);
+} finally {
+   start(); 
+}
+}
 
 async function updateEmployeeRole() {
     const connection = await connectToDatabase();
@@ -236,7 +251,8 @@ async function updateEmployeeRole() {
       console.error('Error updating employee role:', error);
     } finally {
       connection.end();
-      start(); // Restart the prompt to allow more actions
+      start(); 
     }
   }
-  
+
+start();
