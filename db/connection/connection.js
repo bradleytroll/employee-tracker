@@ -1,21 +1,24 @@
-const mysql = require('mysql2/promise');
+const mysql = require('mysql2');
 
 
 const config = {
   host: 'localhost',   
   user: 'root', // Your database username
-  password: '', // Your database password
+  password: 'password', // Your database password
   database: 'employeetracker_db' // Your database name
 };
 
-async function connectToDatabase() {
+function connectToDatabase() {
   try {
-    const connection = await mysql.createConnection(config);
-    console.log('Successfully connected to the database.');
+    const connection = mysql.createConnection(config);
+    connection.connect(error => {
+      if (error) throw error;
+      console.log('Successfully connected to the database.');
+    });
     return connection;
   } catch (error) {
     console.error('Database connection failed:', error);
-    throw error; // Rethrow or handle error as needed
+    throw error; 
   }
 }
 
