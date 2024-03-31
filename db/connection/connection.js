@@ -1,11 +1,13 @@
+// Creates and exports connction to database.
+
 const mysql = require('mysql2');
 
 
 const config = {
   host: 'localhost',   
-  user: 'root', // Your database username
-  password: 'password', // Your database password
-  database: 'employeetracker_db' // Your database name
+  user: 'root', 
+  password: 'password', 
+  database: 'employeetracker_db' 
 };
 
 function connectToDatabase() {

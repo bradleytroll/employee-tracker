@@ -90,5 +90,5 @@ https://github.com/bradleytroll/employee-tracker
 
 To see the applicaiton in action, please follow the link below for a demonstration video:
 
-DEMO LINK
+https://drive.google.com/file/d/1YHsDJNQ7b4nXs8tUh0WOCsdtF_gqcSwg/view
 

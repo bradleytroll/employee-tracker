@@ -1,11 +1,12 @@
+// Imports various modules and makes necessary connections
 const express = require('express');
 const inquirer = require('inquirer');
 const connectToDatabase = require('./db/connection/connection');
-//const { connect } = require('http2');
 const db = connectToDatabase();
-// console.log(db)
 
+// Creates a fucntion that initiates the CLI for the app
 function initCLI() {
+  // Uses Inquirer to display a list of actions to the user and capture their responses.
   inquirer.prompt([
     {
       type: 'list',
@@ -22,7 +23,9 @@ function initCLI() {
         'Exit'
       ]
     }
+    // Handles the user's choice stored in their answers
   ]).then(answers => {
+    // Fires function corresponding to the user's choice
     switch (answers.action) {
       case 'View all departments':
         viewDepartmentsCLI();
@@ -52,6 +55,7 @@ function initCLI() {
   });
 }
 
+// CRUD fucntions defined below:
 
 function viewDepartmentsCLI() {
   const sql = `SELECT id, department_name FROM department`;
@@ -61,7 +65,7 @@ function viewDepartmentsCLI() {
     } else {
       console.table(results);
     }
-    initCLI(); // Prompt for next action
+    initCLI(); 
   });
 }
 
@@ -208,4 +212,5 @@ function updateEmployeeRoleCLI() {
   });
 }
 
+// Initiates the CLI application by calling the fucntion. 
 initCLI();
