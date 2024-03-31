@@ -62,6 +62,12 @@ Follow the on-screen prompts to manage your company's employee database. The app
 - Update an employee's role
 - Exit the application
 
+<img src="./assets/1_cli.png" alt="CLI" width="600" height="auto">
+<img src="./assets/2_view_all.png" alt="View Departments, Roles, and Employees" width="600" height="auto">
+<img src="./assets/3_add_dept.png" alt="Add Department" width="600" height="auto">
+<img src="./assets/4_add_role.png" alt="Add Role" width="600" height="auto">
+<img src="./assets/5_add_employee.png" alt="Add Employee" width="600" height="auto">
+
 # Credits
 
 This project utilizes the following technologies:
