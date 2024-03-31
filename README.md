@@ -5,8 +5,10 @@
 - [Description](#description)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Credits](#credits)
 - [How to Contribute](#how-to-contribute)
 - [GitHub Repo](#github-repo)
+- [Demonstration Video](#demonstration-vido)
 
 ## Description
 
@@ -51,9 +53,7 @@ Before installing, ensure you have Node.js and MySQL installed on your system. F
 
 To start the application, run:
 
-    ```md
-    node server.js
-    ```
+node server.js
 
 Follow the on-screen prompts to manage your company's employee database. The application offers the following functionalities:
 
@@ -61,6 +61,15 @@ Follow the on-screen prompts to manage your company's employee database. The app
 - Add a department, role, or employee
 - Update an employee's role
 - Exit the application
+
+# Credits
+
+This project utilizes the following technologies:
+
+- [Node.js](https://nodejs.org/)
+- [Express.js](https://expressjs.com/)
+- [mysql12](https://www.npmjs.com/package/mysql2)
+= [Inquirer.js](https://www.npmjs.com/package/inquirer)
 
 ## How to Contribute
 
@@ -77,5 +86,9 @@ For more information and to view the source code, visit the Employee Tracker Git
 
 https://github.com/bradleytroll/employee-tracker
 
+## Demonstration Vido
 
+To see the applicaiton in action, please follow the link below for a demonstration video:
+
+DEMO LINK
 
